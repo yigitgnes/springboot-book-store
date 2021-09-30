@@ -25,7 +25,7 @@ public class Book {
     private String genre;
 
     @Column(length = 4)
-    private float score;
+    private double score;
 
     private boolean available;
 
@@ -65,7 +65,7 @@ public class Book {
         return score;
     }
 
-    public void setScore(float score) {
+    public void setScore(double score) {
         this.score = score;
     }
 

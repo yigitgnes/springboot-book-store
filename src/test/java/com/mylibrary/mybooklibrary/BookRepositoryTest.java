@@ -29,7 +29,7 @@ public class BookRepositoryTest {
         book.setAuthor("J.R.R. Tolkien");
         book.setGenre("Science Fiction");
         book.setAvailable(true);
-        book.setScore(10.0F);
+        book.setScore(10.0);
 
         Book savedBook = repo.save(book);
         assertThat(savedBook).isNotNull();

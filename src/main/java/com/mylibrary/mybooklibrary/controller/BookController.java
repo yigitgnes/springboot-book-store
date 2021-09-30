@@ -2,8 +2,8 @@ package com.mylibrary.mybooklibrary.controller;
 
 
 import com.mylibrary.mybooklibrary.model.Book;
-import com.mylibrary.mybooklibrary.service.BookService;
-import com.mylibrary.mybooklibrary.service.BookNotFoundException;
+import com.mylibrary.mybooklibrary.service.impl.BookServiceImpl;
+import com.mylibrary.mybooklibrary.exception.BookNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,7 @@ import java.util.List;
 public class BookController {
 
     @Autowired
-    private BookService service;
+    private BookServiceImpl service;
 
     @GetMapping("/books")
     public String showBookList(Model model) {
