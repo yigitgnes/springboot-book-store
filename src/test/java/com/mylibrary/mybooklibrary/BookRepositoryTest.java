@@ -1,6 +1,7 @@
 package com.mylibrary.mybooklibrary;
 
 import com.mylibrary.mybooklibrary.model.Book;
+import com.mylibrary.mybooklibrary.model.Genre;
 import com.mylibrary.mybooklibrary.repository.BookRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.RepeatedTest;
@@ -27,7 +28,7 @@ public class BookRepositoryTest {
         Book book = new Book();
         book.setName("The Lord of The Rings: The Return of The Kingsss");
         book.setAuthor("J.R.R. Tolkien");
-        book.setGenre("Science Fiction");
+        book.setGenre(new Genre("Science Fiction"));
         book.setAvailable(true);
         book.setScore(10.0);
 

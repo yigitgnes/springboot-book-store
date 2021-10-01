@@ -1,11 +1,6 @@
 package com.mylibrary.mybooklibrary.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "books")
@@ -21,8 +16,9 @@ public class Book {
     @Column(length = 75, name = "author")
     private String author;
 
-    @Column(length = 45, name = "genre")
-    private String genre;
+    @ManyToOne
+    @JoinColumn(name = "book_genre", nullable = false)
+    private Genre genre;
 
     @Column(length = 4)
     private double score;
@@ -53,20 +49,20 @@ public class Book {
         this.author = author;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
     public double getScore() {
         return score;
     }
 
     public void setScore(double score) {
         this.score = score;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
     }
 
     public boolean isAvailable() {
@@ -83,7 +79,7 @@ public class Book {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", author='" + author + '\'' +
-                ", genre='" + genre + '\'' +
+                ", genre='" + genre.getName() + '\'' +
                 ", score=" + score +
                 ", available=" + available +
                 '}';

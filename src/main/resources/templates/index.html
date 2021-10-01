@@ -9,10 +9,42 @@
 </head>
 <body>
 <div class="container-fluid text-center">
-    <h1>Welcome to My Library</h1>
-    <a class="h2" th:href="@{/books}">Manage Books</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">My Library</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/books}">Manage Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/genres}">Manage Genres</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </div>
 <div class="bg-image" style="background-image: url('https://user-images.githubusercontent.com/84538553/135438602-9973133a-c5d9-42ba-b285-4de8c4ce7c9c.jpg'); height: 100vh;">
+    <div
+            style="height: 100%;
+            width: 100%;
+            position: relative;">
+        <h1 style="
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        color: aliceblue">Welcome to My Library</h1>
+    </div>
+</div>
 
 </div>
 </body>

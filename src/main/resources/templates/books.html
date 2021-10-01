@@ -9,15 +9,35 @@
 </head>
 <body>
 <div class="container-fluid text-center">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">My Library</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/books}">Manage Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/genres}">Manage Genres</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/books/new}">Add New Book</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div><h2>Manage Books</h2></div>
-    <div class="m-2">
-        <a class="h3" th:href="@{/books/new}">Add New Book</a>
-    </div>
 
     <div th:if="${message}" class="alert alert-success text-center">
         [[${message}]]
     </div>
-
 
     <div>
         <table class="table table-striped table-dark">
@@ -38,7 +58,7 @@
                     <td>[[${book.id}]]</td>
                     <td>[[${book.name}]]</td>
                     <td>[[${book.author}]]</td>
-                    <td>[[${book.genre}]]</td>
+                    <td>[[${book.genre.name}]]</td>
                     <td>[[${book.score}]]</td>
                     <td>[[${book.available}]]</td>
                     <td>

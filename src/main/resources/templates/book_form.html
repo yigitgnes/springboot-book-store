@@ -9,6 +9,27 @@
 </head>
 <body>
 <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">My Library</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/books}">Manage Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/genres}">Manage Genres</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="text-center"><h1>[[${pageTitle}]]</h1></div>
 
     <form th:action="@{/books/save}" method="post" th:object="${book}"
@@ -24,19 +45,21 @@
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Author:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{author}" class="form-control"  required minlength="2" maxlength="150"/>
+                    <input type="text" th:field="*{author}" class="form-control" required minlength="2" maxlength="150"/>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Genre:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{genre}" class="form-control"/>
+                    <select th:field="*{genre}">
+                        <option th:each="genre : ${genreList}" th:value="${genre.id}" th:text="${genre.name}"></option>
+                    </select>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Rate:</label>
                 <div class="col-sm-8">
-                    <input type="number" step="any" th:field="*{score}" class="form-control"/>
+                    <input type="number" step="any" min="0" max="10" th:field="*{score}" class="form-control" required/>
                 </div>
             </div>
             <div class="form-group row">
